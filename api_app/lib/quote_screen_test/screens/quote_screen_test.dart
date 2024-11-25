@@ -1,28 +1,24 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
+import 'package:http/http.dart' as variable;
 
-void main() {
-  runApp(const QuoteScreen());
-}
-
-class QuoteScreen extends StatefulWidget {
-  const QuoteScreen({super.key});
+class QuoteScreenTest extends StatefulWidget {
+  const QuoteScreenTest({super.key});
 
   @override
-  State<QuoteScreen> createState() => _QuoteScreenState();
+  State<QuoteScreenTest> createState() => _QuoteScreenState();
 }
 
-class _QuoteScreenState extends State<QuoteScreen> {
+class _QuoteScreenState extends State<QuoteScreenTest> {
   String quote = '';
   String author = '';
 
-  Future<void> fetchQuote() async {
+  Future<void> getQuote() async {
     const apiKey = 'ZuERH6N2jkqy5Nuswe5Vjw==dNYdILjcCjYytmir';
     const url = 'https://api-ninjas.com/api/quotes?apiKey=$apiKey';
 
     try {
-      final response = await http.get(Uri.parse(url));
+      final response = await variable.get(Uri.parse(url));
       if (response.statusCode == 200) {
         final data = jsonDecode(response.body) as Map<String, dynamic>;
         setState(() {
@@ -50,11 +46,12 @@ class _QuoteScreenState extends State<QuoteScreen> {
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text(quote),
-                Text(author),
+                Text(quote.toString()),
+                const SizedBox(height: 25),
+                Text(author.toString()),
                 const SizedBox(height: 25),
                 FloatingActionButton(
-                  onPressed: fetchQuote,
+                  onPressed: getQuote,
                   child: const Icon(Icons.refresh),
                 ),
               ],
