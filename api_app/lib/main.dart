@@ -6,8 +6,16 @@ void main() {
   runApp(const QuoteScreen());
 }
 
-class QuoteScreen extends StatelessWidget {
+class QuoteScreen extends StatefulWidget {
   const QuoteScreen({super.key});
+
+  @override
+  State<QuoteScreen> createState() => _QuoteScreenState();
+}
+
+class _QuoteScreenState extends State<QuoteScreen> {
+  String quote = '';
+  String author = '';
 
   @override
   Widget build(BuildContext context) {
