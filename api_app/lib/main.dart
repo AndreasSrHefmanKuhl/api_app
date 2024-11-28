@@ -101,6 +101,7 @@ class _QuoteScreenState extends State<QuoteScreen> {
                 onPressed: getQuote,
                 child: const Icon(Icons.delete),
               ),
+              const SizedBox(height: 25),
               FloatingActionButton(
                   onPressed: () => _deleteQuote(),
                   child: const Icon(Icons.refresh)),
