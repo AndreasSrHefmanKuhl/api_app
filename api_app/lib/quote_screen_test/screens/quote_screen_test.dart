@@ -13,7 +13,7 @@ class _QuoteScreenState extends State<QuoteScreenTest> {
   String quote = '';
   String author = '';
 
-  Future<void> getQuote() async {
+  Future getQuote() async {
     const apiKey = 'ZuERH6N2jkqy5Nuswe5Vjw==dNYdILjcCjYytmir';
     const url = 'https://api-ninjas.com/api/quotes?apiKey=$apiKey';
 
@@ -22,8 +22,8 @@ class _QuoteScreenState extends State<QuoteScreenTest> {
       if (response.statusCode == 200) {
         final data = jsonDecode(response.body) as Map<String, dynamic>;
         setState(() {
-          quote = data['quote'] as String;
-          author = data['author'] as String;
+          quote = data['quote'];
+          author = data['author'];
         });
       } else {
         // Fehlerbehandlung,
@@ -45,9 +45,9 @@ class _QuoteScreenState extends State<QuoteScreenTest> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text(quote.toString()),
+                Text(quote),
                 const SizedBox(height: 10),
-                Text(author.toString()),
+                Text(author),
                 const SizedBox(height: 10),
                 FloatingActionButton(
                   onPressed: getQuote,
