@@ -80,35 +80,34 @@ class _QuoteScreenState extends State<QuoteScreen> {
       author = '';
     });
   }
-    @override
-    Widget build(BuildContext context) {
-      return MaterialApp(
-        home: Scaffold(
-          body: Center(
-            child: Padding(
-              padding: const EdgeInsets.all(12.0),
-              child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      '"$quote"',
-                      style: const TextStyle(fontSize: 35),
-                    ),
-                    const SizedBox(height: 25),
-                    Text('"$author"', style: const TextStyle(fontSize: 35)),
-                    const SizedBox(height: 25),
-                    FloatingActionButton(
-                      onPressed: getQuote,
-                      child: const Icon(Icons.delete),
-                    ),
-                    FloatingActionButton(
-                        onPressed: () => _deleteQuote(),
-                        child: const Icon(Icons.refresh)),
-                  ]),
-            ),
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        body: Center(
+          child: Padding(
+            padding: const EdgeInsets.all(12.0),
+            child:
+                Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+              Text(
+                '"$quote"',
+                style: const TextStyle(fontSize: 35),
+              ),
+              const SizedBox(height: 25),
+              Text('"$author"', style: const TextStyle(fontSize: 35)),
+              const SizedBox(height: 25),
+              FloatingActionButton(
+                onPressed: getQuote,
+                child: const Icon(Icons.delete),
+              ),
+              FloatingActionButton(
+                  onPressed: () => _deleteQuote(),
+                  child: const Icon(Icons.refresh)),
+            ]),
           ),
         ),
-      );
-    }
+      ),
+    );
   }
 }
