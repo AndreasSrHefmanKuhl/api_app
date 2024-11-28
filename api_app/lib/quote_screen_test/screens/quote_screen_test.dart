@@ -27,11 +27,11 @@ class _QuoteScreenState extends State<QuoteScreenTest> {
         });
       } else {
         // Fehlerbehandlung,
-        print('Request failed with status: ${response.statusCode}.');
+        throw Exception('Request failed with status: ${response.statusCode}.');
       }
     } catch (e) {
       // Fehlerbehandlung,
-      print('Error: $e');
+      throw Exception('Error: $e');
     }
   }
 
@@ -43,13 +43,12 @@ class _QuoteScreenState extends State<QuoteScreenTest> {
           child: Padding(
             padding: const EdgeInsets.all(8.0),
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(quote.toString()),
-                const SizedBox(height: 25),
+                const SizedBox(height: 10),
                 Text(author.toString()),
-                const SizedBox(height: 25),
+                const SizedBox(height: 10),
                 FloatingActionButton(
                   onPressed: getQuote,
                   child: const Icon(Icons.refresh),
